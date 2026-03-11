@@ -59,9 +59,60 @@ For a frontend-only demo with mock data, **React Context** is the recommended st
 - Perfect for managing simulated global states like the currently "logged in" user role, theme preferences, and localized inventory updates for the session.
 - Once backend is implemented, this can be easily swapped for Redux Toolkit or React Query if required.
 
-### 5. Mock Data Strategy
+### 5. UI Framework
 
-We will use local JSON files to act as our simulated database. The `src/services` layer will import these files and return them using `setTimeout` to simulate natural API latency.
+For styling the SBBMS demo, we will use **Tailwind CSS** via the **NativeWind** library. 
+
+**Reasoning:**
+- **Utility-First Styling:** Allows for rapid, highly custom UI development directly within component files without writing separate stylesheets.
+- **Modern Aesthetics:** Ideal for creating a bespoke, modern interface that stands out from standard Material Design templates.
+- **Familiarity & Popularity:** Tailwind is the industry standard for utility styling, making the codebase accessible to most web developers transitioning to React Native.
+- **Consistency:** Ensures styling consistency across iOS and Android while providing granular control over responsive designs.
+
+**Installation (Expo 50+):**
+```bash
+npm install nativewind
+npm install tailwindcss@3.3.2 --save-dev
+```
+*(Additional babel and tailwind.config.js setup will be required during initialization).*
+
+### 6. Environment Requirements
+
+To run this project locally, ensure you have the following prerequisites installed:
+- Node.js >= 18
+- NPM >= 9
+- Expo CLI
+- Android Studio (for Android Emulator) or Xcode (for iOS Simulator on macOS)
+- Antigravity Agent Environment
+- Git
+
+### 7. Core Dependencies
+
+The primary packages required for this application are:
+- `expo`
+- `react-native`
+- `react-navigation`
+- `nativewind`
+- `react-native-vector-icons`
+- `victory-native` (for inventory charts)
+- `expo-location` (for donor proximity tracking)
+- `expo-notifications` (for simulated emergency alerts)
+
+### 8. Environment Configuration
+
+Even in demo mode, maintaining an environment configuration file is essential. Create a `.env` file at the root:
+
+```env
+APP_ENV=demo
+API_MODE=mock
+ENABLE_FAKE_NOTIFICATIONS=true
+DEMO_MODE=true
+```
+*When `DEMO_MODE` is set to `false`, the app should be configured to attempt connection with backend APIs.*
+
+### 9. Mock Data Strategy & API Layer
+
+We will use local JSON files to act as our simulated database. The `src/services` layer will import these files and return them using async functions to simulate natural API latency.
 
 **Directory: `src/mock/`**
 - `donors.json`: List of registered donors, their blood groups, location, and availability status.
@@ -69,8 +120,19 @@ We will use local JSON files to act as our simulated database. The `src/services
 - `requests.json`: Active and historical blood requests.
 - `users.json`: Simulated authentication credentials to allow switching between Admin, Donor, and Receiver views.
 
+**Directory: `src/services/`**
+- `donorService.js`: Simulates `GET donors` and `UPDATE donor availability`.
+- `inventoryService.js`: Simulates `GET blood inventory`.
+- `requestService.js`: Simulates `POST request` and `GET requests`.
 
-### 6. Demo Simulation Strategy
+### 10. Role-Based UI Routing
+
+The navigation flow changes drastically depending on the logged-in user. We will implement Role-Based Navigation:
+- **Admin** → `AdminTabNavigator` (Inventory Management, Donor Approval, Emergency Broadcasts).
+- **Donor** → `DonorTabNavigator` (Availability Toggle, Donation History, Nearest Blood Banks).
+- **Receiver** → `ReceiverTabNavigator` (Request Blood, Request Status Tracking).
+
+### 11. Demo Simulation Strategy
 
 To make the demo feel realistic without a backend:
 

@@ -83,3 +83,42 @@ flowchart TD
     I -- Yes --> J[Notify Admin & Receiver]
     I -- No --> K[Wait for other donors]
 ```
+
+### 5. Authentication Flow
+
+```mermaid
+flowchart TD
+    A[User] --> B[Login]
+    B --> C[OTP Verification]
+    C --> D[Role Selection]
+    D --> E[Dashboard]
+```
+
+### 6. Main Navigation Flow
+
+```mermaid
+flowchart TD
+    A[Home] --> B[Search Blood]
+    B --> C[Search Results]
+    C --> D[Request Blood]
+    D --> E[Request Status]
+```
+
+### 7. Donation Lifecycle Flow
+
+```mermaid
+flowchart TD
+    A[Donor Registers] --> B[Donation Slot Booked]
+    B --> C[Blood Collected]
+    C --> D[Inventory Updated]
+    D --> E[Blood Issued]
+```
+
+### 8. Inventory Update Flow
+
+```mermaid
+flowchart TD
+    A[Donation Received] --> B[Blood Tested]
+    B --> C[Inventory Updated]
+    C --> D[Available For Requests]
+```

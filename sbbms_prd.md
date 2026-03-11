@@ -29,44 +29,91 @@ To build a reliable, fast, and accessible digital platform that bridges the gap 
 ### 7. Product Scope
 This document covers the **Frontend Demo Prototype** only. The prototype will use local mock data to simulate real backend operations. Authentication, real databases, and live API endpoints are out of scope for this phase.
 
-### 8. Core Features
+### 8. Demo Limitations
+This demo uses simulated data. Real-time updates, true authentication, and hospital backend integrations are not implemented in this prototype.
+
+### 9. Core Features
 - **Dashboard:** Role-specific summaries (Inventory stats for Admin, Activity for Donors, Active Requests for Receivers).
 - **Blood Inventory Visualization:** Charts showing available blood groups.
 - **Donor Matching System:** UI for finding available donors based on blood type and location.
 - **Request Management:** Forms and tracking screens for blood requests.
 - **Emergency Alerts:** Simulated push notifications and banners for urgent needs.
 
-### 9. User Flows
+### 10. MVP Features for Demo
+1. Login simulation
+2. Role selection
+3. Donor dashboard
+4. Blood search
+5. Request blood
+6. Emergency donor alert
+7. Admin inventory dashboard
+8. Donation history
+
+### 11. Mock Data Schema
+To provide a structured approach to the simulated data, the primary entity (`donor`) will follow this basic schema:
+
+```json
+{
+  "donor": {
+    "id": "string",
+    "name": "string",
+    "bloodGroup": "string (e.g., A+, O-)",
+    "location": "string",
+    "available": "boolean",
+    "lastDonationDate": "ISO 8601 Date String"
+  }
+}
+```
+
+### 12. User Flows
 - **Donor Registration & Booking:** Sign up -> Enter details -> Book slot -> Confirmation.
 - **Emergency Blood Request:** Receiver logs in -> Emergency form -> System matches donors -> Admin approval simulation.
 - **Inventory Management:** Admin dashboard -> Update stock (simulated) -> View analytics.
 *(Refer to `project_flowchart.md` for detailed flow diagrams).*
 
-### 10. Non Functional Requirements
+### 13. Screen List
+1. Splash
+2. Login
+3. Role Selection
+4. Home Dashboard
+5. Blood Search
+6. Blood Search Results
+7. Request Blood
+8. Emergency Request
+9. Donor Dashboard
+10. Donation History
+11. Donor Network
+12. Notifications
+13. Profile
+14. Admin Dashboard
+15. Admin Request Manager
+16. Inventory Dashboard
+
+### 14. Non Functional Requirements
 - **Usability:** The interface must be highly intuitive, accessible, and require zero training.
 - **Performance:** As a frontend demo, transitions between screens must be instantaneous.
 - **Responsiveness:** The layout must adapt gracefully to various mobile screen sizes.
 - **Aesthetics:** Clean, medical-themed UI (reds, whites, clean typography) instilling trust and urgency.
 
-### 11. Technology Stack
+### 15. Technology Stack
 - **Framework:** React Native
 - **Routing:** React Navigation
 - **State Management:** React Context
-- **UI & Icons:** React Native compatible UI components, React Native Vector Icons
+- **UI & Icons:** NativeWind (Tailwind CSS), React Native Vector Icons
 - **Data Visualization:** Victory Native (or Recharts equivalent for web view)
 - **Data Source:** Local JSON mock files
 
-### 12. Risks
+### 16. Risks
 - **Client Expectation:** The client might mistake the functional frontend demo for a fully working application. *Mitigation:* Clearly label mock data and simulated actions during the presentation.
 - **Performance with Large Mock Data:** Processing large local JSON files might cause UI lags. *Mitigation:* Keep mock data sizes reasonable and optimized.
 
-### 13. Future Enhancements
+### 17. Future Enhancements
 - Integration with live backend REST/GraphQL APIs.
 - Real-time GPS tracking for emergency donors.
 - Integration with state health department databases.
 - Real push notification services via Firebase/APNS.
 
-### 14. Release Plan
+### 18. Release Plan
 - **Phase 1 (Current):** Interactive Frontend Prototype with mock data for client approval.
 - **Phase 2:** Backend Architecture setup and API development.
 - **Phase 3:** Integration of Frontend with Backend.

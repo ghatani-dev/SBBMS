@@ -84,33 +84,41 @@ Roboto Medium
 
 ---
 
-## Core UI Components
+## Component Library
 
-Reusable components should include:
+The standard reusable UI components required for the SBBMS application:
 
-### Buttons
+1. **Button:** Primary, Secondary, Outline, Danger (Emergency).
+2. **Card:** Blood Inventory Card, Donor Profile Card, Blood Request Card.
+3. **InputField:** Standard Text Input, Password Input (Secure).
+4. **Dropdown:** Standard Select (for Blood Group, Location, Hospital).
+5. **ToggleSwitch:** Donor Availability Toggle (Online/Offline).
+6. **NotificationBanner:** In-app Push Alerts, Emergency Notifications.
+7. **ModalDialog:** Confirmations (Confirm Donation, Verify Request).
+8. **ChartCard:** Data visualizer for the Admin Inventory dashboard.
+9. **Status Indicators:** Pills/Badges for request status (Pending, Approved, Rejected).
 
-Primary Button
-Emergency Button
-Secondary Button
+---
 
-### Cards
+## UI States
 
-Blood inventory card
-Donor profile card
-Request card
+### 1. Empty States
+Every list view must have a friendly fallback state when no data exists.
+* **No Blood Available:** "No units available nearby. Try an emergency donor request."
+* **No Requests:** "There are currently no active blood requests."
+* **No History:** "You haven't made any donations yet. Your journey to save lives starts here!"
 
-### Input Fields
+### 2. Loading States
+To simulate backend fetch delays gracefully:
+* **Inventory Loading:** Skeleton loader across chart layout.
+* **Donor Search Loading:** Spinner with text "Finding matching donors near you..."
+* **Request Submission Loading:** Overlay loader with text "Submitting request..."
 
-Text input
-Dropdown
-Date picker
-
-### Status Indicators
-
-Available
-Low Stock
-Out of Stock
+### 3. Error States
+Provide actionable feedback for failed actions:
+* **Invalid Request Form:** "Please fill in all required patient details."
+* **Network Failure (Simulation):** "Unable to connect to the server. Please check your connection."
+* **Location Unavailable:** "We need your location to find nearby donors. Please enable GPS."
 
 ---
 
@@ -510,7 +518,125 @@ Availability Toggle
 
 ---
 
-# 5. Key Interaction Flows
+# 5. Admin UI Screens
+
+# 5.1 Admin Dashboard
+
+### Purpose
+
+High-level overview of the entire blood bank system.
+
+### Elements
+
+Total Stock Overview
+Active Emergency Requests
+Pending Tasks (Approvals needed)
+
+### Layout
+
+```text
+--------------------------------
+| Admin Dashboard              |
+|                              |
+| Total Blood Stock: 450 Units |
+|                              |
+| Critical Low Stock: O-, AB-  |
+|                              |
+| [View Inventory]             |
+|                              |
+| 3 Emg. Requests Active       |
+| 12 Pending Verifications     |
+--------------------------------
+```
+
+---
+
+# 5.2 Inventory Management
+
+### Purpose
+
+Detailed view and simulated modification of blood stock.
+
+### Elements
+
+Bar Chart / Pie Chart of Current Stock
+Data Table of Units by Blood Group
+
+### Layout
+
+```text
+--------------------------------
+| Inventory Management         |
+|                              |
+| [ PIE CHART VIZ ]            |
+|                              |
+| Table View:                  |
+| O+: 120 Units                |
+| A+: 85 Units                 |
+| B+: 90 Units                 |
+|                              |
+| [Simulate Donation Update]   |
+--------------------------------
+```
+
+---
+
+# 5.3 Request Management
+
+### Purpose
+
+Review, approve, or reject incoming blood requests.
+
+### Elements
+
+List of Requests
+Patient Name & Hospital
+Requested Blood Group & Units
+Status (Pending/Approved)
+
+### Layout
+
+```text
+--------------------------------
+| Request Management           |
+|                              |
+| Patient: Rahul S. (SNT Hosp) |
+| Needs: 2 Units O+            |
+| Status: PENDING              |
+|                              |
+| [Approve]  [Reject]          |
+--------------------------------
+```
+
+---
+
+# 5.4 Donor Verification
+
+### Purpose
+
+Admin process to verify donors after successful donation.
+
+### Elements
+
+Recent Donor List
+Verify Donation Button
+
+### Layout
+
+```text
+--------------------------------
+| Donor Verifications          |
+|                              |
+| Donor: Arun T. (O+)          |
+| Date: Today, 10:00 AM        |
+|                              |
+| [Verify & Add to Stock]      |
+--------------------------------
+```
+
+---
+
+# 6. Key Interaction Flows
 
 ### Donor Flow
 
