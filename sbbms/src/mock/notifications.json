@@ -1,0 +1,16 @@
+[
+  {
+    "id": "NOT-001",
+    "type": "emergency",
+    "message": "URGENT: B+ blood needed at STNM Hospital (2 km away)",
+    "timestamp": "2026-03-11T09:30:00Z",
+    "isRead": false
+  },
+  {
+    "id": "NOT-002",
+    "type": "system",
+    "message": "Your blood donation request has been approved.",
+    "timestamp": "2026-03-09T14:20:00Z",
+    "isRead": true
+  }
+]

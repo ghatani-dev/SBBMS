@@ -1,0 +1,22 @@
+[
+  {
+    "id": "REQ-101",
+    "patientName": "Sunita Lepcha",
+    "bloodGroup": "A+",
+    "units": 2,
+    "hospital": "Central Referral Hospital",
+    "status": "Pending",
+    "date": "2026-03-10",
+    "isEmergency": false
+  },
+  {
+    "id": "REQ-102",
+    "patientName": "Karma Bhutia",
+    "bloodGroup": "O-",
+    "units": 1,
+    "hospital": "STNM Hospital",
+    "status": "Approved",
+    "date": "2026-03-09",
+    "isEmergency": true
+  }
+]

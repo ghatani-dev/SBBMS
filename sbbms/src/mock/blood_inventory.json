@@ -1,0 +1,15 @@
+{
+  "hospitalId": "HOSP-001",
+  "hospitalName": "STNM Hospital",
+  "lastUpdated": "2026-03-11T10:00:00Z",
+  "inventory": {
+    "O+": 120,
+    "A+": 85,
+    "B+": 90,
+    "AB+": 30,
+    "O-": 12,
+    "A-": 8,
+    "B-": 14,
+    "AB-": 5
+  }
+}

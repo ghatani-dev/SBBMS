@@ -1,0 +1,24 @@
+[
+  {
+    "id": "USR-001",
+    "name": "Bikash Rai",
+    "phone": "9876543210",
+    "role": "donor",
+    "bloodGroup": "O+",
+    "district": "Gangtok"
+  },
+  {
+    "id": "USR-002",
+    "name": "Rahul Sharma",
+    "phone": "9789012345",
+    "role": "receiver",
+    "district": "Gangtok"
+  },
+  {
+    "id": "USR-003",
+    "name": "Admin SBBMS",
+    "phone": "9000000000",
+    "role": "admin",
+    "hospital": "STNM Hospital"
+  }
+]

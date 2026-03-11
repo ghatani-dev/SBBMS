@@ -1,0 +1,22 @@
+[
+  {
+    "id": "DON-001",
+    "userId": "USR-001",
+    "lastDonationDate": "2026-01-12",
+    "isAvailableForEmergency": true,
+    "location": {
+      "latitude": 27.3389,
+      "longitude": 88.6065
+    }
+  },
+  {
+    "id": "DON-002",
+    "userId": "USR-004",
+    "lastDonationDate": "2025-10-05",
+    "isAvailableForEmergency": false,
+    "location": {
+      "latitude": 27.281,
+      "longitude": 88.358
+    }
+  }
+]
